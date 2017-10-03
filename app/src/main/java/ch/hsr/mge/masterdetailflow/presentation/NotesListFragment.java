@@ -45,10 +45,24 @@ public class NotesListFragment extends Fragment {
         super.onAttach(activity);
 
         if (!(activity instanceof ItemSelectionListener)) {
-            throw new IllegalStateException("Activity must implement ItemSelectionListener");
+            throw new IllegalStateException("Activity must implement OnItemSelection");
         }
 
         itemSelectionCallback = (ItemSelectionListener) activity;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        // Nur wenn die App im Vordergrund aktiv ist wollen wir auch ueber die Updates
+        // informiert werden
+        adapter.startObservingNotes();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        adapter.stopObservingNotes();
     }
 
     @Override

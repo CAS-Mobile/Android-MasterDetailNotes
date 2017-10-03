@@ -1,6 +1,8 @@
 package ch.hsr.mge.masterdetailflow.domain;
 
-public class Note {
+import java.util.Observable;
+
+public class Note extends Observable /* fuer Aufgabe 4 */ {
 
     private String title;
     private String content;
@@ -16,6 +18,8 @@ public class Note {
 
     public void setTitle(String title) {
         this.title = title;
+        setChanged();
+        notifyObservers();
     }
 
     public String getContent() {
