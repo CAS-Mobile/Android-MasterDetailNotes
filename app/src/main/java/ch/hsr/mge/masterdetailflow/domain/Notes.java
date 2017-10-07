@@ -8,9 +8,9 @@ public class Notes {
     private List<Note> notes = new ArrayList<>();
 
     public Notes() {
-        notes.add(new Note("Einkaufen", "Blabla"));
-        notes.add(new Note("TODOs", "Blabla"));
-        notes.add(new Note("Selbststudium MGE", "Blabla"));
+        notes.add(new Note("Einkaufen", "Milch"));
+        notes.add(new Note("TODO", "CAS Mobile"));
+        notes.add(new Note("Selbststudium", "Android"));
     }
 
     public Note get(int position) {
